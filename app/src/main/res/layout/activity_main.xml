@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="UselessParent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:paddingLeft="24dp"
+                android:paddingTop="48dp"
+                android:paddingRight="24dp"
+                android:paddingBottom="18dp"
+                tools:text="Similar temperatures continuing with a chance of rain multiple days." />
+
+            <TextView
+                android:id="@+id/datetime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="18dp"
+                tools:text="Time: 09:18:18" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/temp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="32sp"
+                    tools:text="temp: 6.2" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="18dp"
+                tools:text="humidity: 92.7%" />
+
+            <TextView
+                android:id="@+id/conditions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:padding="18dp"
+                tools:text="Conditions: Partially cloudy" />
+        </LinearLayout>
+
+
+
+    </ScrollView>
+</LinearLayout>
