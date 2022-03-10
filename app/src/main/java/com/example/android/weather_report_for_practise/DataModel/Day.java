@@ -13,7 +13,7 @@ import java.util.List;
 
 public abstract class Day implements Parcelable {
     @SerializedName("datetime")
-    public abstract String datetime_daily();//from today to today+14
+    public abstract String datetime_daily();//from today to today+14,like:2022-03-09
 
     @SerializedName("tempmax")
     public abstract double tempmax_daily();

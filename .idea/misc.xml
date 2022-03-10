@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/activity_main.xml" value="0.14" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/fragment_current.xml" value="0.1" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/fragment_days.xml" value="0.25" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/fragment_tomorrow.xml" value="0.18" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/list_item_daily.xml" value="0.3079710144927536" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/list_item_days.xml" value="0.3880208333333333" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/layout/list_item_hourly.xml" value="0.33" />
+        <entry key="..\:/Android_Interface/weather_report_for_practise/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -1,6 +1,9 @@
 package com.example.android.weather_report_for_practise;
 
 public class ParameterClass {
+    public static final String[] fragmentTitles = new String[]
+            {"Current", "Tomorrow","Days"};
+
     //These are weather API url parameters
     public static final RequestParam PARAM =
             new RequestParam("Seattle",

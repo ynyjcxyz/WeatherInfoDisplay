@@ -5,6 +5,8 @@ import static com.example.android.weather_report_for_practise.DtoRepository.getD
 import static com.uber.autodispose.AutoDispose.autoDisposable;
 import static com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider.from;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager2.widget.ViewPager2;
+
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -12,30 +14,41 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.android.weather_report_for_practise.DataModel.Dto;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 public class MainActivity extends AppCompatActivity {
-    TextView description,datetime,temp,humidity,conditions;
-    ImageView icon;
+    TabLayout tabLayout;
+    ViewPager2 viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        initView();
+        tabLayout = findViewById(R.id.tab);
+        viewPager = findViewById(R.id.viewpager);
+
+        initListener();
         loadData();
     }
 
-    private void initView() {
-        description = findViewById(R.id.description);
-        datetime = findViewById(R.id.datetime);
-        temp = findViewById(R.id.temp);
-        humidity = findViewById(R.id.humidity);
-        conditions = findViewById(R.id.conditions);
-        icon = findViewById(R.id.icon);
+    private void initListener() {
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+            }
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+            }
+        });
     }
 
     private void loadData() {
@@ -48,29 +61,25 @@ public class MainActivity extends AppCompatActivity {
 
     private void onError(Throwable throwable) {
         System.out.println(throwable);
-//        throwable.printStackTrace();
-//        throw new RuntimeException(throwable);
-        Toast.makeText(getApplication(), throwable.getMessage(), LENGTH_LONG).show();
+        throwable.printStackTrace();
+        throw new RuntimeException(throwable);
     }
 
     private void onSuccess(Dto dto) {
-        this.setView(dto);
-        setTitle(dto.resolvedAddress());
+        bindViewPagerWithData(dto);
+        this.setTitle(dto.resolvedAddress());
     }
 
-    @SuppressLint("SetTextI18n")
-    private void setView(Dto dto) {
-        description.setText(dto.description());
-        datetime.setText("DataTime: " + dto.currentConditions().datetime_by_current());
-        temp.setText(dto.currentConditions().temp_by_current() + "\u2103");
-        humidity.setText("Current Humidity: "+ dto.currentConditions().humidity_by_current() +"%");
-        conditions.setText("Current Condition: " + dto.currentConditions().conditions_by_current());
-        Glide.with(this)
-                .load(ParameterClass.iconBaseUrl
-                        + ParameterClass.fourth_set_color
-                        + dto.currentConditions().icon_by_current()
-                        + ".png")
-                .override(64,64)
-                .into(icon);
+    private void bindViewPagerWithData(Dto dto) {
+        viewPager.setAdapter(new ScreenSlidePagerAdapter(this,dto));
+        viewPager.setCurrentItem(0);
+        bindTab();
     }
+
+    private void bindTab() {
+        new TabLayoutMediator(tabLayout, viewPager, (tab, position) ->
+                tab.setText(ParameterClass.fragmentTitles[position])).attach();
+    }
+
+
 }
