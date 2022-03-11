@@ -17,7 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.android.weather_report_for_practise.DataModel.Day;
 import com.example.android.weather_report_for_practise.DataModel.Hour;
-import com.example.android.weather_report_for_practise.ParameterClass;
+import com.example.android.weather_report_for_practise.AppConstants;
 import com.example.android.weather_report_for_practise.R;
 import com.example.android.weather_report_for_practise.RecyclerView.RecyclerViewAdapterForHourlyList;
 
@@ -71,8 +71,8 @@ public class TomorrowFragment extends Fragment {
         temp_min_tomorrow.setText(dataTomorrow.tempmin_daily() + "\u2103 \u21E3");
         conditions_tomorrow.setText(dataTomorrow.conditions_daily());
         Glide.with(this)
-                .load(ParameterClass.iconBaseUrl
-                        + ParameterClass.second_set_color
+                .load(AppConstants.iconBaseUrl
+                        + AppConstants.second_set_color
                         + dataTomorrow.icon_daily()
                         + ".png")
                 .override(64,64)

@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.android.weather_report_for_practise.DataModel.Day;
-import com.example.android.weather_report_for_practise.ParameterClass;
+import com.example.android.weather_report_for_practise.AppConstants;
 import com.example.android.weather_report_for_practise.R;
 
 import java.util.List;
@@ -39,7 +39,7 @@ public class RecyclerViewAdapterForDaysList extends RecyclerView.Adapter<ViewHol
         holder.temp_min_daily.setText(itemList.get(position).tempmin_daily() + "\u2103 \u21E3");
         holder.conditions_daily.setText(itemList.get(position).conditions_daily());
         Glide.with(context)
-                .load(ParameterClass.iconBaseUrl + ParameterClass.second_set_color + itemList.get(position).icon_daily() + ".png")
+                .load(AppConstants.iconBaseUrl + AppConstants.second_set_color + itemList.get(position).icon_daily() + ".png")
                 .into(holder.icon_by_daily);
     }
 
