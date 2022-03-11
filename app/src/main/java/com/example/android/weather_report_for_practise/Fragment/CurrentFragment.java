@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.android.weather_report_for_practise.DataModel.CurrentConditions;
 import com.example.android.weather_report_for_practise.DataModel.Hour;
-import com.example.android.weather_report_for_practise.ParameterClass;
+import com.example.android.weather_report_for_practise.AppConstants;
 import com.example.android.weather_report_for_practise.R;
 import com.example.android.weather_report_for_practise.RecyclerView.RecyclerViewAdapterForHourlyList;
 
@@ -72,8 +72,8 @@ public class CurrentFragment extends Fragment {
         humidity.setText("CurrentFragment Humidity: "+ currentWeather.humidity_by_current() +"%");
         conditions.setText("CurrentFragment Condition: " + currentWeather.conditions_by_current());
         Glide.with(this)
-                .load(ParameterClass.iconBaseUrl
-                        + ParameterClass.fourth_set_color
+                .load(AppConstants.iconBaseUrl
+                        + AppConstants.fourth_set_color
                         + currentWeather.icon_by_current()
                         + ".png")
                 .override(64,64)

@@ -21,19 +21,16 @@ public class ScreenSlidePagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        Fragment fragment = new Fragment();
         switch (position) {
             case 0:
-                fragment = currentFragment();
-                break;
+                return currentFragment();
             case 1:
-                fragment = tomorrowFragment();
-                break;
+                return tomorrowFragment();
             case 2:
-                fragment = daysFragment();
-                break;
+                return daysFragment();
+            default:
+                throw new IllegalStateException("Do not support more than 3 items");
         }
-        return fragment;
     }
 
     private Fragment currentFragment() {

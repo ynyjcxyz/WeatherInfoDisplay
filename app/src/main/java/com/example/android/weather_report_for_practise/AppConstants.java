@@ -1,6 +1,6 @@
 package com.example.android.weather_report_for_practise;
 
-public class ParameterClass {
+public class AppConstants {
     public static final String[] fragmentTitles = new String[]
             {"Current", "Tomorrow","Days"};
 
