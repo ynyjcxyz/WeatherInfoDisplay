@@ -1,7 +1,6 @@
 package com.example.android.weather_report_for_practise.DataModel;
 
 import android.os.Parcelable;
-
 import com.google.auto.value.AutoValue;
 import com.google.gson.annotations.SerializedName;
 import com.ryanharter.auto.value.gson.GenerateTypeAdapter;

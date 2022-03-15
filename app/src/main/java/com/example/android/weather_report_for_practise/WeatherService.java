@@ -1,7 +1,6 @@
 package com.example.android.weather_report_for_practise;
 
 import com.example.android.weather_report_for_practise.DataModel.Dto;
-
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

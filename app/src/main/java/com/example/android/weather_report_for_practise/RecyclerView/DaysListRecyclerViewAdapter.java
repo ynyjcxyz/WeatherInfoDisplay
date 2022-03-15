@@ -1,24 +1,17 @@
 package com.example.android.weather_report_for_practise.RecyclerView;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.example.android.weather_report_for_practise.DataModel.Day;
+import com.example.android.weather_report_for_practise.DataModel.DayWrapper;
 import com.example.android.weather_report_for_practise.R;
-
 import java.util.List;
 
 public class DaysListRecyclerViewAdapter extends RecyclerView.Adapter<DaysListViewHolder> {
-    private final Context context;
-    private final List<Day> itemList;
+    private final List<DayWrapper> itemList;
 
-    public DaysListRecyclerViewAdapter(Context context, List<Day> itemList) {
-        this.context = context;
+    public DaysListRecyclerViewAdapter( List<DayWrapper> itemList) {
         this.itemList = itemList;
     }
 

@@ -13,14 +13,12 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.example.android.weather_report_for_practise.DataModel.Day;
 import com.example.android.weather_report_for_practise.DataModel.Hour;
-import com.example.android.weather_report_for_practise.AppConstants;
+import com.example.android.weather_report_for_practise.Util.AppConstants;
 import com.example.android.weather_report_for_practise.R;
 import com.example.android.weather_report_for_practise.RecyclerView.HourlyListRecyclerViewAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -80,7 +78,7 @@ public class TomorrowFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(requireActivity(), DividerItemDecoration.HORIZONTAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerAdapter = new HourlyListRecyclerViewAdapter(rootView.getContext(),tomorrowWeatherInfoByHours);
+        recyclerAdapter = new HourlyListRecyclerViewAdapter(tomorrowWeatherInfoByHours);
         recyclerView.setAdapter(recyclerAdapter);
     }
 

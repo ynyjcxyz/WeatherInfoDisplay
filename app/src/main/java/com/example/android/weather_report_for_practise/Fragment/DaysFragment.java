@@ -11,11 +11,12 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.android.weather_report_for_practise.DataModel.Day;
+import com.example.android.weather_report_for_practise.DataModel.DayWrapper;
 import com.example.android.weather_report_for_practise.R;
 import com.example.android.weather_report_for_practise.RecyclerView.DaysListRecyclerViewAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DaysFragment extends Fragment {
     private List<Day> daysInfoList = new ArrayList<>();
@@ -39,9 +40,14 @@ public class DaysFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(requireActivity(), DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
-        recyclerAdapter = new DaysListRecyclerViewAdapter(rootView.getContext(),daysInfoList);
+        recyclerAdapter = new DaysListRecyclerViewAdapter(transform(daysInfoList));
         recyclerView.setAdapter(recyclerAdapter);
         return rootView;
+    }
+
+    private List<DayWrapper> transform(List<Day> daysInfoList) {
+        return daysInfoList.stream().map(item
+                -> new DayWrapper(item, false)).collect(Collectors.toList());
     }
 
 }

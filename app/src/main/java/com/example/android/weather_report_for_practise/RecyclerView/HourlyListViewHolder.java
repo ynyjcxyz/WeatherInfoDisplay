@@ -7,9 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
-import com.example.android.weather_report_for_practise.AppConstants;
+import com.example.android.weather_report_for_practise.Util.AppConstants;
 import com.example.android.weather_report_for_practise.DataModel.Hour;
 import com.example.android.weather_report_for_practise.R;
 

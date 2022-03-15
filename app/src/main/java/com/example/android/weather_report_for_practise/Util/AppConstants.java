@@ -1,4 +1,6 @@
-package com.example.android.weather_report_for_practise;
+package com.example.android.weather_report_for_practise.Util;
+
+import com.example.android.weather_report_for_practise.RequestParam;
 
 public class AppConstants {
     public static final String[] fragmentTitles = new String[]
