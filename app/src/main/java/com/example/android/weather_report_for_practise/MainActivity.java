@@ -1,18 +1,13 @@
 package com.example.android.weather_report_for_practise;
 
-import static android.widget.Toast.LENGTH_LONG;
 import static com.example.android.weather_report_for_practise.DtoRepository.getDto;
 import static com.uber.autodispose.AutoDispose.autoDisposable;
 import static com.uber.autodispose.android.lifecycle.AndroidLifecycleScopeProvider.from;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.bumptech.glide.Glide;
+
 import com.example.android.weather_report_for_practise.DataModel.Dto;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
@@ -52,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void loadData() {
-        getDto(ParameterClass.PARAM)
+        getDto(AppConstants.PARAM)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .as(autoDisposable(from(this)))
@@ -78,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void bindTab() {
         new TabLayoutMediator(tabLayout, viewPager, (tab, position) ->
-                tab.setText(ParameterClass.fragmentTitles[position])).attach();
+                tab.setText(AppConstants.fragmentTitles[position])).attach();
     }
 
 

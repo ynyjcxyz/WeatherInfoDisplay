@@ -16,9 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.android.weather_report_for_practise.DataModel.CurrentConditions;
 import com.example.android.weather_report_for_practise.DataModel.Hour;
-import com.example.android.weather_report_for_practise.ParameterClass;
+import com.example.android.weather_report_for_practise.AppConstants;
 import com.example.android.weather_report_for_practise.R;
-import com.example.android.weather_report_for_practise.RecyclerView.RecyclerViewAdapterForHourlyList;
+import com.example.android.weather_report_for_practise.RecyclerView.HourlyListRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class CurrentFragment extends Fragment {
     private List<Hour> todayWeatherInfoByHours = new ArrayList<>();
 
     private RecyclerView recyclerView;
-    private RecyclerViewAdapterForHourlyList recyclerAdapter;
+    private HourlyListRecyclerViewAdapter recyclerAdapter;
 
     public static CurrentFragment constructCurrentFragment(CurrentConditions currentConditions,
                                                            List<Hour> weather_list_by_hours){
@@ -69,11 +69,11 @@ public class CurrentFragment extends Fragment {
 
         datetime.setText("DataTime: " + currentWeather.datetime_by_current());
         temp.setText(currentWeather.temp_by_current() + "\u2103");
-        humidity.setText("CurrentFragment Humidity: "+ currentWeather.humidity_by_current() +"%");
-        conditions.setText("CurrentFragment Condition: " + currentWeather.conditions_by_current());
+        humidity.setText("Current Humidity: "+ currentWeather.humidity_by_current() +"%");
+        conditions.setText("Current Condition: " + currentWeather.conditions_by_current());
         Glide.with(this)
-                .load(ParameterClass.iconBaseUrl
-                        + ParameterClass.fourth_set_color
+                .load(AppConstants.iconBaseUrl
+                        + AppConstants.fourth_set_color
                         + currentWeather.icon_by_current()
                         + ".png")
                 .override(64,64)
@@ -81,7 +81,7 @@ public class CurrentFragment extends Fragment {
         recyclerView.setHasFixedSize(true);
         recyclerView.addItemDecoration(new DividerItemDecoration(requireActivity(), DividerItemDecoration.HORIZONTAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false));
-        recyclerAdapter = new RecyclerViewAdapterForHourlyList(rootView.getContext(),todayWeatherInfoByHours);
+        recyclerAdapter = new HourlyListRecyclerViewAdapter(rootView.getContext(),todayWeatherInfoByHours);
         recyclerView.setAdapter(recyclerAdapter);
     }
 }

@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class GetRetrofitObj {
     static WeatherService retrofitService(){
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(ParameterClass.baseUrl)
+                .baseUrl(AppConstants.baseUrl)
                 .addConverterFactory(GsonConverterFactory.create(createGson()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(buildOkHttpClient())

@@ -35,8 +35,9 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textSize="24sp"
+                    android:textSize="28sp"
                     tools:text="temp: 6.2" />
+
                 <ImageView
                     android:id="@+id/icon_current"
                     android:layout_width="0dp"

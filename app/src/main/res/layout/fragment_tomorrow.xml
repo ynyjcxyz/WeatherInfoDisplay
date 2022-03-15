@@ -40,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     tools:text="20 \u2103 \u21E1" />
 
                 <TextView
@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:textSize="12sp"
+                    android:textSize="16sp"
                     tools:text="2 \u2103 \u21E3" />
             </LinearLayout>
 
@@ -68,7 +68,7 @@
         <ImageView
             android:id="@+id/icon_tomorrow"
             android:layout_width="0dp"
-            android:layout_height="100dp"
+            android:layout_height="64dp"
             android:layout_weight="1"
             android:gravity="center" />
     </LinearLayout>
